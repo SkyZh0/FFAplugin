@@ -1,17 +1,17 @@
 package me.skyzh0.FFAplugin.Commands;
 
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.joining;
+import me.skyzh0.FFAplugin.Runnable.PLAYERjoining;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.util.ArrayList;
-import java.util.UUID;
+import javax.swing.*;
 
 public class joinFfaCommand implements CommandExecutor {
     private Main plugin;
@@ -32,20 +32,7 @@ public class joinFfaCommand implements CommandExecutor {
             return true;
         }
         Player p = (Player) sender;
-        ArrayList<UUID> playing = new ArrayList<UUID>();
-        playing.add(p.getUniqueId());
-        int nPlaying = playing.size();
-        boolean alreadyBroadcasting = false;
-        if (!alreadyBroadcasting) {
-            BukkitTask join = new joining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
-            alreadyBroadcasting = true;
-        }
-        for (UUID player : playing) {
-            Bukkit.getPlayer(player).teleport(arena1);
-        } /* ne pas oublier playing.clear(); dans le gameEND */
-        Bukkit.broadcastMessage(Integer.toString(nPlaying));
-
-
+        BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
         return false;
     }
 }

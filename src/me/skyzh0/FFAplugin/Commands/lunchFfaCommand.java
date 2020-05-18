@@ -1,6 +1,7 @@
 package me.skyzh0.FFAplugin.Commands;
 
 import me.skyzh0.FFAplugin.Main;
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.lunching;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,10 +24,20 @@ public class lunchFfaCommand implements CommandExecutor {
 
         if (!(sender instanceof Player)) {
             BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
+            boolean alreadyBroadcasting = false;
+            if (!alreadyBroadcasting) {
+                BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+                alreadyBroadcasting = true;
+            }
         }
 
         if (p.hasPermission("ffa.lunchffa")) {
             BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
+            boolean alreadyBroadcasting = false;
+            if (!alreadyBroadcasting) {
+                BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+                alreadyBroadcasting = true;
+            }
 
         } else {
             p.sendMessage("§cSorry but you don't have the permission !");
