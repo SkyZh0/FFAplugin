@@ -7,6 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.scheduler.BukkitTask;
 
 public class lunchFfaCommand implements CommandExecutor {
@@ -21,25 +22,22 @@ public class lunchFfaCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         int interval = 2;
         Player p = (Player) sender;
+        PermissionAttachment attachment = p.addAttachment(plugin);
 
         if (!(sender instanceof Player)) {
             BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
-            boolean alreadyBroadcasting = false;
-            if (!alreadyBroadcasting) {
-                BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
-                alreadyBroadcasting = true;
-            }
+            BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
         }
 
-        if (p.hasPermission("ffa.lunchffa")) {
-            BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
-            boolean alreadyBroadcasting = false;
-            if (!alreadyBroadcasting) {
+        if (p.hasPermission("ffa.lunchffa") {
+            if (p.hasPermission("ffa.alreadylunchedbg")) {
+                BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
-                alreadyBroadcasting = true;
+                attachment.setPermission("ffa.alreadylunchedbg", false);
+            } else {
+                p.sendMessage("An FFA event is already lunched");
             }
-
-        } else {
+        } else{
             p.sendMessage("§cSorry but you don't have the permission !");
         }
         return false;

@@ -20,6 +20,7 @@ public class ffaAdminCommand implements CommandExecutor {
         Player p = (Player) sender;
         PermissionAttachment attachment = p.addAttachment(plugin);
         attachment.setPermission("ffaplugin.templunchingperm", true);
+        attachment.setPermission("ffa.alreadylunchedbg", true);
         return false;
     }
 }
