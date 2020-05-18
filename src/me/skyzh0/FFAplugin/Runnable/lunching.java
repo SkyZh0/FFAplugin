@@ -40,7 +40,7 @@ public class lunching extends BukkitRunnable {
         } else if (nRepeat != 0 && !(p instanceof Player)) {
             Bukkit.spigot().broadcast(msg2);
             /*p.spigot().sendMessage(msg2);*/
-        }else {
+        } else {
             cancel();
         }
         nRepeat--;

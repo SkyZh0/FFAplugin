@@ -11,4 +11,7 @@ commands:
   joinffa:
     aliases:
     description: join the ffa event :)
+  ffaadmin:
+    aliases: admin
+    description: COOL ADMIN STUUF
 api-version: 1.7.10

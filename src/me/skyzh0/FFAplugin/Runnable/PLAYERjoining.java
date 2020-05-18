@@ -12,15 +12,11 @@ public class PLAYERjoining extends BukkitRunnable {
         p = player;
     }
 
-    boolean alreadyJoined = false;
-
     @Override
     public void run() {
         TextComponent joined = new TextComponent("§4 You successfully joined the FFA event !");
-        if (!alreadyJoined) {
-            p.spigot().sendMessage(joined);
-            alreadyJoined = true;
-        }
+        p.spigot().sendMessage(joined);
 
     }
+
 }
