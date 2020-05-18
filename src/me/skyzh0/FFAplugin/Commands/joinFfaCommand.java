@@ -1,6 +1,8 @@
 package me.skyzh0.FFAplugin.Commands;
 
+import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.PLAYERjoining;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -37,13 +39,18 @@ public class joinFfaCommand implements CommandExecutor {
 
         Player p = (Player) sender;
         PermissionAttachment attachment = p.addAttachment(plugin);
+        int LunchTimer = 61;
 
         if (p.hasPermission("ffaplugin.templunchingperm")) {
             BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
+            BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
             attachment.setPermission("ffaplugin.templunchingperm", false);
             /* mettre attachment.setPermission("ffaplugin.templunchingperm", true); DANS LE GAME END */
-        }else {
+        } else {
             p.sendMessage("§c You already joined !");
+            /* DEBUG LINE
+            attachment.setPermission("ffaplugin.templunchingperm", true);
+             */
         }
         return false;
     }

@@ -1,8 +1,10 @@
 package me.skyzh0.FFAplugin.Commands;
 
+import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
 import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.lunching;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,17 +29,22 @@ public class lunchFfaCommand implements CommandExecutor {
         if (!(sender instanceof Player)) {
             BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
             BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+            BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer);
         }
 
-        if (p.hasPermission("ffa.lunchffa")){
+        if (p.hasPermission("ffa.lunchffa")) {
             if (p.hasPermission("ffa.alreadylunchedbg")) {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
                 attachment.setPermission("ffa.alreadylunchedbg", false);
             } else {
                 p.sendMessage("§c Sorry, but another FFA event is already lunched");
+                /* DEBUG LINE
+                attachment.setPermission("ffa.alreadylunchedbg", true);
+                 */
             }
-        } else{
+        } else {
             p.sendMessage("§cSorry but you don't have the permission !");
         }
         return false;
