@@ -29,13 +29,13 @@ public class lunchFfaCommand implements CommandExecutor {
             BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
         }
 
-        if (p.hasPermission("ffa.lunchffa") {
+        if (p.hasPermission("ffa.lunchffa")){
             if (p.hasPermission("ffa.alreadylunchedbg")) {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 attachment.setPermission("ffa.alreadylunchedbg", false);
             } else {
-                p.sendMessage("An FFA event is already lunched");
+                p.sendMessage("§c Sorry, but another FFA event is already lunched");
             }
         } else{
             p.sendMessage("§cSorry but you don't have the permission !");
