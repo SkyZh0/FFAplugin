@@ -1,19 +1,12 @@
 package me.skyzh0.FFAplugin.Runnable;
 
-import javafx.print.PageLayout;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.minecraft.server.v1_7_R4.ChatSerializer;
-import net.minecraft.server.v1_7_R4.PacketPlayOutChat;
-import net.minecraft.server.v1_7_R4.PlayerConnection;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_7_R4.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import net.md_5.bungee.api.chat.HoverEvent;
-
-import java.awt.*;
 
 public class lunching extends BukkitRunnable {
     Player p;
@@ -22,7 +15,7 @@ public class lunching extends BukkitRunnable {
         p = player;
     }
 
-    int nRepeat = 6;
+    int nRepeat = 1;
 
     @Override
     public void run() {

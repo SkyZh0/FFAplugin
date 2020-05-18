@@ -4,7 +4,6 @@ import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
 import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.lunching;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -22,7 +21,7 @@ public class lunchFfaCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        int interval = 2;
+        int interval = 1;
         Player p = (Player) sender;
         PermissionAttachment attachment = p.addAttachment(plugin);
 
@@ -34,7 +33,7 @@ public class lunchFfaCommand implements CommandExecutor {
 
         if (p.hasPermission("ffa.lunchffa")) {
             if (p.hasPermission("ffa.alreadylunchedbg")) {
-                BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
+                BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
                 attachment.setPermission("ffa.alreadylunchedbg", false);

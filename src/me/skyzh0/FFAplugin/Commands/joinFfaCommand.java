@@ -4,17 +4,12 @@ import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
 import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.PLAYERjoining;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
-import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
-
-import javax.swing.*;
 
 public class joinFfaCommand implements CommandExecutor {
     private Main plugin;
@@ -45,7 +40,9 @@ public class joinFfaCommand implements CommandExecutor {
             BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
             BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
             attachment.setPermission("ffaplugin.templunchingperm", false);
-            /* mettre attachment.setPermission("ffaplugin.templunchingperm", true); DANS LE GAME END */
+            /* mettre
+            attachment.setPermission("ffaplugin.templunchingperm", true);
+            DANS LE GAME END */
         } else {
             p.sendMessage("§c You already joined !");
             /* DEBUG LINE
