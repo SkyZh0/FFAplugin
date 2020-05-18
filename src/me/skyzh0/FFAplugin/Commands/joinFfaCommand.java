@@ -35,14 +35,16 @@ public class joinFfaCommand implements CommandExecutor {
         ArrayList<UUID> playing = new ArrayList<UUID>();
         playing.add(p.getUniqueId());
         int nPlaying = playing.size();
-        if (nPlaying >= 2) {
-            BukkitTask join = new joining(p.getPlayer()).runTaskLater(plugin, 2);
-            for (UUID player : playing) {
-                Bukkit.getPlayer(player).teleport(arena1);
-            } /* ne pas oublier playing.clear(); dans le gameEND */
-        } else {
-            p.sendMessage("§4Sorry, you will have to wait: there is not enought player do start");
+        boolean alreadyBroadcasting = false;
+        if (!alreadyBroadcasting) {
+            BukkitTask join = new joining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+            alreadyBroadcasting = true;
         }
+        for (UUID player : playing) {
+            Bukkit.getPlayer(player).teleport(arena1);
+        } /* ne pas oublier playing.clear(); dans le gameEND */
+        Bukkit.broadcastMessage(Integer.toString(nPlaying));
+
 
         return false;
     }
