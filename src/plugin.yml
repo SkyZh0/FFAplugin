@@ -1,0 +1,14 @@
+name: FFAplugin
+version: 0.1
+author: SkyZh0
+main: me.skyzh0.FFAplugin.Main
+description: Thsi an FFA plugin made by SkyZh0
+
+commands:
+  lunchffa:
+    aliases:
+    description: lunch an ffa event !
+  joinffa:
+    aliases:
+    description: join the ffa event :)
+api-version: 1.7.10

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="FFAplugin:jar">
+    <output-path>$USER_HOME$/Desktop/DEV/Java/testserver/plugins</output-path>
+    <root id="archive" name="FFAplugin.jar">
+      <element id="module-output" name="FFAplugin" />
+    </root>
+  </artifact>
+</component>
