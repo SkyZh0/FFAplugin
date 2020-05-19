@@ -26,8 +26,8 @@ public class HOSTjoining extends BukkitRunnable {
             Bukkit.spigot().broadcast(msgJoiningTimer);
         } else if (LunchTimer <= 5 && LunchTimer != 0) {
             p.spigot().sendMessage(msgJoiningTimer);
-        } else if (LunchTimer == 0 ) {
-            if (joinFfaCommand.playing.size() >= 2){
+        } else if (LunchTimer == 0) {
+            if (joinFfaCommand.playing.size() >= 2) {
                 p.spigot().sendMessage(error);
                 cancel();
             }

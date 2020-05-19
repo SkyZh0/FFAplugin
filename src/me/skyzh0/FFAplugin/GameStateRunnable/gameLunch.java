@@ -34,7 +34,7 @@ public class gameLunch extends BukkitRunnable {
         int i = 0;
         if (joinFfaCommand.playing.size() >= 2) {
             for (Player player : Bukkit.getOnlinePlayers()) {
-                if (!(joinFfaCommand.playing.contains(player))){
+                if (!(joinFfaCommand.playing.contains(player))) {
                     player.kickPlayer(player.getDisplayName());
                 }
                 i++;
@@ -59,7 +59,7 @@ public class gameLunch extends BukkitRunnable {
             p.setFoodLevel(20);
             p.setExp(0);
             p.setLevel(0);
-        }else {
+        } else {
             cancel();
         }
     }

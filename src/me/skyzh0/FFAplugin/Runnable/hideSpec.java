@@ -11,11 +11,12 @@ public class hideSpec extends BukkitRunnable {
     public hideSpec(Player player) {
         p = player;
     }
+
     int counter = deathEvent.diedPlayer.size();
 
     @Override
     public void run() {
-        while (counter >= 0){
+        while (counter >= 0) {
             p.hidePlayer(deathEvent.diedPlayer.get(counter));
             counter--;
         }

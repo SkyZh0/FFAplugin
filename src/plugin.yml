@@ -5,6 +5,9 @@ main: me.skyzh0.FFAplugin.Main
 description: This is an FFA plugin made by SkyZh0
 
 commands:
+  leaveffacommand:
+    aliases: leave
+    description: leave ffa event (in spec mode)
   lunchffa:
     aliases:
     description: lunch an ffa event !

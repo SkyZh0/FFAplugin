@@ -13,9 +13,10 @@ public class specMod extends BukkitRunnable {
     Player p;
     public static boolean isSpectating = false;
 
-    public specMod(Player player){
+    public specMod(Player player) {
         p = player;
     }
+
     int counter = joinFfaCommand.playing.size();
 
     @Override

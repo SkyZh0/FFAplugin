@@ -6,6 +6,7 @@ package me.skyzh0.FFAplugin;
 
 import me.skyzh0.FFAplugin.Commands.ffaAdminCommand;
 import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.leaveFfaCommand;
 import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,6 +17,7 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
+        new leaveFfaCommand(this);
         new lunchFfaCommand(this);
         new joinFfaCommand(this);
         new ffaAdminCommand(this);

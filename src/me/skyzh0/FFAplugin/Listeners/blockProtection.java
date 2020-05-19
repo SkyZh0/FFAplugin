@@ -23,8 +23,9 @@ public class blockProtection implements Listener {
     public void onBlockBreak(BlockBreakEvent blockBreakEvent) {
         blockBreakEvent.setCancelled(true);
     }
+
     @EventHandler
-    public void onBlockPlace(BlockPlaceEvent placeEvent){
+    public void onBlockPlace(BlockPlaceEvent placeEvent) {
         placeEvent.setCancelled(true);
     }
 }

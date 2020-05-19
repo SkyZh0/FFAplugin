@@ -13,16 +13,16 @@ public class leaveFfaCommand implements CommandExecutor {
 
     public leaveFfaCommand(Main plugin) {
         this.plugin = plugin;
-        plugin.getCommand("joinffa").setExecutor(this);
+        plugin.getCommand("leaveffa").setExecutor(this);
     }
 
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         Player p = (Player) sender;
-        if (!(p instanceof Player)){
+        if (!(p instanceof Player)) {
             sender.sendMessage("Only player are able to do that");
-        }else{
+        } else {
             BukkitTask lolMDR = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
         }
         return false;
