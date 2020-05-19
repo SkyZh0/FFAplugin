@@ -1,6 +1,7 @@
 package me.skyzh0.FFAplugin.Runnable;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
@@ -26,6 +27,7 @@ public class leaveSpec extends BukkitRunnable {
     public void run() {
         if (deathEvent.diedPlayer.contains(p)) {
             p.getInventory().clear();
+            p.setGameMode(GameMode.CREATIVE);
             p.teleport(Spawn);
             p.updateInventory();
             p.setHealth(p.getMaxHealth());
@@ -36,12 +38,10 @@ public class leaveSpec extends BukkitRunnable {
             PermissionAttachment attachment = p.addAttachment((Plugin) this);
             attachment.setPermission("ffaplugin.templunchingperm", true);
             attachment.setPermission("ffa.alreadylunchedbg", true);
-            p.recalculatePermissions();
             int i = 0;
             for (Player player : Bukkit.getOnlinePlayers()) {
                 p.showPlayer(player);
-                joinFfaCommand.playing.remove(p);
-                deathEvent.diedPlayer.remove(p);
+                player.recalculatePermissions();
                 i++;
             }
         }

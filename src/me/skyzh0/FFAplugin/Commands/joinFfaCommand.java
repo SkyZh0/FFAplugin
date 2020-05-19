@@ -21,6 +21,7 @@ public class joinFfaCommand implements CommandExecutor {
         this.plugin = plugin;
         plugin.getCommand("joinffa").setExecutor(this);
     }
+
     public static ArrayList<Player> playing;
 
     @Override
@@ -40,19 +41,19 @@ public class joinFfaCommand implements CommandExecutor {
         PermissionAttachment attachment = p.addAttachment(plugin);
         joinFfaCommand.playing.add(p);
         int LunchTimer = 61;
-
-        if (p.hasPermission("ffaplugin.templunchingperm")) {
-            BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
-            BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
-            attachment.setPermission("ffaplugin.templunchingperm", false);
+        if (lunchFfaCommand.isLunched) {
+            if (p.hasPermission("ffaplugin.templunchingperm")) {
+                BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
+                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
+                attachment.setPermission("ffaplugin.templunchingperm", false);
             /* mettre
             attachment.setPermission("ffaplugin.templunchingperm", true);
             DANS LE GAME END */
-        } else {
-            p.sendMessage("§c You already joined !");
-            /* DEBUG LINE
-            attachment.setPermission("ffaplugin.templunchingperm", true);
-             */
+            } else {
+                p.sendMessage("§c You already joined !");
+            }
+        }else {
+            p.sendMessage("§c Sorry but no ffa event are lunched yet");
         }
         return false;
     }

@@ -19,6 +19,8 @@ public class lunchFfaCommand implements CommandExecutor {
         plugin.getCommand("lunchffa").setExecutor(this);
     }
 
+    public static boolean isLunched = false;
+
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         int interval = 1;
@@ -26,22 +28,22 @@ public class lunchFfaCommand implements CommandExecutor {
         PermissionAttachment attachment = p.addAttachment(plugin);
 
         if (!(sender instanceof Player)) {
-            BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
-            BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
-            BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer);
+            if (!lunchFfaCommand.isLunched) {
+                BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
+                BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
+                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer);
+                lunchFfaCommand.isLunched = true;
+            }
         }
 
         if (p.hasPermission("ffa.lunchffa")) {
-            if (p.hasPermission("ffa.alreadylunchedbg")) {
+            if (!lunchFfaCommand.isLunched) {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
-                attachment.setPermission("ffa.alreadylunchedbg", false);
+                lunchFfaCommand.isLunched = true;
             } else {
                 p.sendMessage("§c Sorry, but another FFA event is already lunched");
-                /* DEBUG LINE
-                attachment.setPermission("ffa.alreadylunchedbg", true);
-                 */
             }
         } else {
             p.sendMessage("§cSorry but you don't have the permission !");
