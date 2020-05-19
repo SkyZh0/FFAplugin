@@ -31,7 +31,7 @@ public class lunching extends BukkitRunnable {
             Bukkit.spigot().broadcast(msg1);
             /*p.spigot().sendMessage(msg1);*/
         } else if (nRepeat != 0 && !(p instanceof Player)) {
-            Bukkit.spigot().broadcast(msg2);
+            Bukkit.getConsoleSender().sendMessage(String.valueOf(msg2));
             /*p.spigot().sendMessage(msg2);*/
         } else {
             cancel();

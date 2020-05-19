@@ -11,6 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.scheduler.BukkitTask;
 
+import java.util.ArrayList;
+import java.util.UUID;
+
 public class joinFfaCommand implements CommandExecutor {
     private Main plugin;
 
@@ -18,6 +21,7 @@ public class joinFfaCommand implements CommandExecutor {
         this.plugin = plugin;
         plugin.getCommand("joinffa").setExecutor(this);
     }
+    public static ArrayList<Player> playing;
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -34,6 +38,7 @@ public class joinFfaCommand implements CommandExecutor {
 
         Player p = (Player) sender;
         PermissionAttachment attachment = p.addAttachment(plugin);
+        joinFfaCommand.playing.add(p);
         int LunchTimer = 61;
 
         if (p.hasPermission("ffaplugin.templunchingperm")) {

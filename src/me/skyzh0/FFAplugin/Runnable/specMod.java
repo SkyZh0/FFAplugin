@@ -1,27 +1,26 @@
 package me.skyzh0.FFAplugin.Runnable;
 
+import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.skyzh0.FFAplugin.Listeners.deathEvent;
 
-import javax.xml.soap.Text;
+import java.io.IOException;
 
 public class specMod extends BukkitRunnable {
     Player p;
     public static boolean isSpectating = false;
 
-    public specMod(Player player) {
+    public specMod(Player player){
         p = player;
     }
+    int counter = joinFfaCommand.playing.size();
 
     @Override
     public void run() {
         TextComponent begin = new TextComponent("§7 You entered in spectator mod, do /ffaleave to leave the event");
-        p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 99999, 0));
         p.teleport(deathEvent.deathloc);
         p.getWorld().strikeLightning(deathEvent.deathloc);
         p.spigot().sendMessage(begin);
