@@ -33,7 +33,6 @@ public class gameLunch extends BukkitRunnable {
         p.getInventory().setArmorContents(new ItemStack[4]);
         p.getInventory().clear();
         p.getInventory().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
-
         ItemStack SWORD = new ItemStack(Material.STONE_SWORD);
         ItemMeta meta = SWORD.getItemMeta();
         meta.addEnchant(Enchantment.DURABILITY, 3, true);

@@ -1,8 +1,8 @@
 name: FFAplugin
-version: 0.1
+version: 0.2
 author: SkyZh0
 main: me.skyzh0.FFAplugin.Main
-description: Thsi an FFA plugin made by SkyZh0
+description: This is an FFA plugin made by SkyZh0
 
 commands:
   lunchffa:
