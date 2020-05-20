@@ -1,13 +1,12 @@
 package me.skyzh0.FFAplugin.Commands;
 
+import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import me.skyzh0.FFAplugin.Main;
-import org.bukkit.Bukkit;
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import me.skyzh0.FFAplugin.Listeners.deathEvent;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 
 public class debugArray implements CommandExecutor {
     private Main plugin;

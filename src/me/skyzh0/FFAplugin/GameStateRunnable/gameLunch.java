@@ -1,6 +1,6 @@
 package me.skyzh0.FFAplugin.GameStateRunnable;
 
-import me.skyzh0.FFAplugin.Listeners.deathEvent;
+import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -13,17 +13,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
-
-import java.util.Collection;
+import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 
 public class gameLunch extends BukkitRunnable {
     Player p;
-    int spawnPointX = 0;
-    int spawnPointY = 83;
-    int spawnPointZ = 0;
-    Location arena1 = new Location(Bukkit.getWorld("world"), spawnPointX, spawnPointY, spawnPointZ);
 
     public gameLunch(Player player) {
         p = player;
@@ -42,12 +35,12 @@ public class gameLunch extends BukkitRunnable {
             cancel();
         } else {
             int j = 0;
-            for (Player playing : Bukkit.getOnlinePlayers()){
+            for (Player playing : Bukkit.getOnlinePlayers()) {
                 playing.setFlying(false);
                 playing.setAllowFlight(false);
-                j ++;
+                j++;
             }
-            p.teleport(arena1);
+            p.teleport(lunchFfaCommand.Arena1);
             p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 5 * 20, 255));
             p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 5 * 20, 255));
             p.setGameMode(GameMode.SURVIVAL);

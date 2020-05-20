@@ -1,11 +1,10 @@
 package me.skyzh0.FFAplugin.Runnable;
 
+import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
 
 public class HOSTjoining extends BukkitRunnable {
     public static int LunchTimer = 60;
@@ -56,7 +55,7 @@ public class HOSTjoining extends BukkitRunnable {
             p.playSound(p.getLocation(), counterSound, 100, 1);
         } else if (LunchTimer <= 5 && LunchTimer != 0) {
             p.playSound(p.getLocation(), counterSound, 100, 1);
-        } else if (LunchTimer <= 0){
+        } else if (LunchTimer <= 0) {
             p.playSound(p.getLocation(), Sound.ENDERDRAGON_HIT, 100, 1);
         }
         LunchTimer--;

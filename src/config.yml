@@ -1,3 +1,12 @@
 spawnpoint_x: 0
 spawnpoint_y: 100
 spawnpoint_z: 0
+
+arena1_x: 0
+arena1_y: 100
+arena1_z: 0
+
+specLoc_x: 0
+specLoc_y: 100
+specLoc_z: 0
+

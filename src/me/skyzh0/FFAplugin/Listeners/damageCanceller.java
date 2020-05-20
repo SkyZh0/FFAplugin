@@ -7,8 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
-import me.skyzh0.FFAplugin.Listeners.deathEvent;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 
 public class damageCanceller implements Listener {
     private static Main plugin;

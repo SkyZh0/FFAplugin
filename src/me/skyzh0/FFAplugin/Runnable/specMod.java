@@ -7,8 +7,6 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.IOException;
-
 public class specMod extends BukkitRunnable {
     Player p;
     public static boolean isSpectating = false;

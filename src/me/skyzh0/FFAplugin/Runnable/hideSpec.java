@@ -15,7 +15,7 @@ public class hideSpec extends BukkitRunnable {
 
     @Override
     public void run() {
-        int i = 0 ;
+        int i = 0;
         int j = 0;
         for (Player alive : joinFfaCommand.playing) {
             i++;

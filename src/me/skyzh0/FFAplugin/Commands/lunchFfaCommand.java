@@ -4,11 +4,13 @@ import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
 import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.lunching;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.scheduler.BukkitTask;
 
 public class lunchFfaCommand implements CommandExecutor {
@@ -20,6 +22,10 @@ public class lunchFfaCommand implements CommandExecutor {
     }
 
     public static boolean isLunched = false;
+    private static World world = Bukkit.getWorld("world");
+    public static Location Spawn;
+    public static Location Arena1;
+    public static Location specLoc;
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -48,6 +54,13 @@ public class lunchFfaCommand implements CommandExecutor {
         } else {
             p.sendMessage("§cSorry but you don't have the permission !");
         }
+        /* LOCATION LOADER */
+
+        lunchFfaCommand.Spawn = new Location(world, plugin.getConfig().getInt("spawnpoint_x"), plugin.getConfig().getInt("spawnpoint_y"), plugin.getConfig().getInt("spawnpoint_z"));
+        lunchFfaCommand.Arena1 = new Location(world, plugin.getConfig().getInt("arena1_x"), plugin.getConfig().getInt("arena1_y"), plugin.getConfig().getInt("arena1_z"));
+        lunchFfaCommand.specLoc = new Location(world, plugin.getConfig().getInt("specLoc_x"), plugin.getConfig().getInt("specLoc_y"), plugin.getConfig().getInt("specLoc_z"));
+
+        /* LOCATION LOADER END */
         return false;
     }
 

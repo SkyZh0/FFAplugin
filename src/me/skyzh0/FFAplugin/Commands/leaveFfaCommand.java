@@ -1,7 +1,6 @@
 package me.skyzh0.FFAplugin.Commands;
 
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.PLAYERjoining;
 import me.skyzh0.FFAplugin.Runnable.leaveSpec;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

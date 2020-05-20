@@ -17,7 +17,7 @@ public class playerJoin implements Listener {
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event){
+    public void onJoin(PlayerJoinEvent event) {
         Player p = event.getPlayer();
         p.setAllowFlight(true);
     }
