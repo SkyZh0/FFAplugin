@@ -1,6 +1,7 @@
 package me.skyzh0.FFAplugin.Listeners;
 
 import me.skyzh0.FFAplugin.Main;
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import net.minecraft.server.v1_7_R4.Block;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -21,11 +22,23 @@ public class blockProtection implements Listener {
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent blockBreakEvent) {
-        blockBreakEvent.setCancelled(true);
+        Player p = blockBreakEvent.getPlayer();
+        if (!(p.hasPermission("ffa.admin.build"))) {
+            blockBreakEvent.setCancelled(true);
+        }
+        if (p.hasPermission("ffa.admin.build") && HOSTjoining.isGameRunning){
+            blockBreakEvent.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent placeEvent) {
-        placeEvent.setCancelled(true);
+        Player p = placeEvent.getPlayer();
+        if (!(p.hasPermission("ffa.admin.build"))) {
+            placeEvent.setCancelled(true);
+        }
+        if (p.hasPermission("ffa.admin.build") && HOSTjoining.isGameRunning){
+            placeEvent.setCancelled(true);
+        }
     }
 }

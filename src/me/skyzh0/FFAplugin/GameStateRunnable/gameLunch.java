@@ -32,14 +32,21 @@ public class gameLunch extends BukkitRunnable {
     @Override
     public void run() {
         int i = 0;
-        if (joinFfaCommand.playing.size() >= 2) {
+        if (!(joinFfaCommand.playing.size() >= 2)) {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 if (!(joinFfaCommand.playing.contains(player))) {
-                    player.kickPlayer(player.getDisplayName());
+                    Bukkit.broadcastMessage("LOL");
                 }
                 i++;
             }
-
+            cancel();
+        } else {
+            int j = 0;
+            for (Player playing : Bukkit.getOnlinePlayers()){
+                playing.setFlying(false);
+                playing.setAllowFlight(false);
+                j ++;
+            }
             p.teleport(arena1);
             p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 5 * 20, 255));
             p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 5 * 20, 255));
@@ -59,8 +66,6 @@ public class gameLunch extends BukkitRunnable {
             p.setFoodLevel(20);
             p.setExp(0);
             p.setLevel(0);
-        } else {
-            cancel();
         }
     }
 }

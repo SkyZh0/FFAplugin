@@ -1,11 +1,13 @@
 package me.skyzh0.FFAplugin.Commands;
 
+import me.skyzh0.FFAplugin.GameStateRunnable.gameWin;
 import me.skyzh0.FFAplugin.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
+import org.bukkit.scheduler.BukkitTask;
 
 public class ffaAdminCommand implements CommandExecutor {
     private Main plugin;
@@ -21,6 +23,7 @@ public class ffaAdminCommand implements CommandExecutor {
         PermissionAttachment attachment = p.addAttachment(plugin);
         attachment.setPermission("ffaplugin.templunchingperm", true);
         attachment.setPermission("ffa.alreadylunchedbg", true);
+        BukkitTask lalal = new gameWin(p.getPlayer()).runTaskLater(plugin, 1);
         return false;
     }
 }

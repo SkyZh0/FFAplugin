@@ -25,13 +25,13 @@ public class lunchFfaCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         int interval = 1;
         Player p = (Player) sender;
-        PermissionAttachment attachment = p.addAttachment(plugin);
 
         if (!(sender instanceof Player)) {
             if (!lunchFfaCommand.isLunched) {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer);
+                joinFfaCommand.playing.add(p);
                 lunchFfaCommand.isLunched = true;
             }
         }

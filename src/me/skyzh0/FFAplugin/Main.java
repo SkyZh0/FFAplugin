@@ -4,12 +4,15 @@ package me.skyzh0.FFAplugin;
  * Created by SkyZh0 on the 18/05/2020
  */
 
-import me.skyzh0.FFAplugin.Commands.ffaAdminCommand;
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
-import me.skyzh0.FFAplugin.Commands.leaveFfaCommand;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
+import me.skyzh0.FFAplugin.Commands.*;
+import me.skyzh0.FFAplugin.GameStateRunnable.gameWin;
+import me.skyzh0.FFAplugin.Listeners.blockProtection;
+import me.skyzh0.FFAplugin.Listeners.damageCanceller;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
+import me.skyzh0.FFAplugin.Listeners.playerJoin;
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 
 public class Main extends JavaPlugin {
@@ -22,6 +25,10 @@ public class Main extends JavaPlugin {
         new joinFfaCommand(this);
         new ffaAdminCommand(this);
         new deathEvent(this);
-
+        new damageCanceller(this);
+        new blockProtection(this);
+        new debugArray(this);
+        new playerJoin(this);
     }
+
 }

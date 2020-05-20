@@ -1,5 +1,6 @@
 package me.skyzh0.FFAplugin.GameStateRunnable;
 
+import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.minecraft.server.v1_7_R4.Entity;
 import net.minecraft.server.v1_7_R4.EntityFireworks;
@@ -32,12 +33,28 @@ public class gameWin extends BukkitRunnable {
         winner.setFoodLevel(20);
         winner.setExp(0);
         winner.setLevel(0);
+        Bukkit.spigot().broadcast(msg1);
 
         Location location = winner.getLocation();
         World world = location.getWorld();
         world.playSound(location, Sound.WITHER_DEATH, 100, 1);
 
-        int nFireWorks = 5;
+        int i = 0;
+
+        int spawnPointX = 0;
+        int spawnPointY = 83;
+        int spawnPointZ = 0;
+        Location Spawn = new Location(Bukkit.getWorld("world"), spawnPointX, spawnPointY, spawnPointZ);
+
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            player.showPlayer(player);
+            player.recalculatePermissions();
+            joinFfaCommand.playing.remove(p);
+            deathEvent.diedPlayer.remove(p);
+            player.teleport(Spawn);
+            i++;
+        }
+        int nFireWorks = 10;
         while (nFireWorks > 0){
             Firework f = (Firework) winner.getPlayer().getWorld().spawn(winner.getPlayer().getLocation(), Firework.class);
             FireworkMeta fm = f.getFireworkMeta();
@@ -48,27 +65,22 @@ public class gameWin extends BukkitRunnable {
                     .withColor(Color.ORANGE)
                     .withFade(Color.WHITE)
                     .build());
-            fm.setPower(1);
+            fm.setPower(0);
             f.setFireworkMeta(fm);
             nFireWorks --;
         }
 
         lunchFfaCommand.isLunched = false;
+        HOSTjoining.isGameRunning = false;
         joinFfaCommand.playing.clear();
         deathEvent.diedPlayer.clear();
+        HOSTjoining.LunchTimer = 60;
 
-        int i = 0;
-        int spawnPointX = 0;
-        int spawnPointY = 83;
-        int spawnPointZ = 0;
-        Location Spawn = new Location(Bukkit.getWorld("world"), spawnPointX, spawnPointY, spawnPointZ);
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            player.showPlayer(player);
-            player.recalculatePermissions();
-            joinFfaCommand.playing.remove(p);
-            deathEvent.diedPlayer.remove(p);
-            player.teleport(Spawn);
-            i++;
+        int j = 0;
+        for (Player playing : Bukkit.getOnlinePlayers()){
+            playing.setAllowFlight(true);
+            playing.setFlying(true);
+            j ++;
         }
 
     }

@@ -17,4 +17,7 @@ commands:
   ffaadmin:
     aliases: admin
     description: COOL ADMIN STUUF
+  admindebug:
+    aliases: debugarray
+    description: COOL ADMIN STUUF
 api-version: 1.7.10

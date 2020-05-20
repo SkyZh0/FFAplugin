@@ -16,6 +16,8 @@ public class PLAYERjoining extends BukkitRunnable {
     public void run() {
         TextComponent joined = new TextComponent("§4 You successfully joined the FFA event !");
         p.spigot().sendMessage(joined);
+        p.setAllowFlight(true);
+        p.setFlying(true);
 
 
     }

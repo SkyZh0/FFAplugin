@@ -26,6 +26,7 @@ public class leaveSpec extends BukkitRunnable {
     @Override
     public void run() {
         if (deathEvent.diedPlayer.contains(p)) {
+            p.sendMessage("§c You left the ffa event");
             p.getInventory().clear();
             p.setGameMode(GameMode.CREATIVE);
             p.teleport(Spawn);
@@ -44,6 +45,8 @@ public class leaveSpec extends BukkitRunnable {
                 player.recalculatePermissions();
                 i++;
             }
+        }else{
+            p.sendMessage("§4 You cannot do that while you are alive");
         }
 
     }

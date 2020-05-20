@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.PermissionAttachment;
 import org.bukkit.scheduler.BukkitTask;
+import sun.security.mscapi.CPublicKey;
 
 import java.util.ArrayList;
 import java.util.UUID;
@@ -22,7 +23,7 @@ public class joinFfaCommand implements CommandExecutor {
         plugin.getCommand("joinffa").setExecutor(this);
     }
 
-    public static ArrayList<Player> playing;
+    public static ArrayList<Player> playing = new ArrayList<Player>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -36,23 +37,18 @@ public class joinFfaCommand implements CommandExecutor {
             sender.sendMessage("Only players can use this command !");
             return true;
         }
-
         Player p = (Player) sender;
-        PermissionAttachment attachment = p.addAttachment(plugin);
-        joinFfaCommand.playing.add(p);
-        int LunchTimer = 61;
+        int LunchTimer = 60;
         if (lunchFfaCommand.isLunched) {
-            if (p.hasPermission("ffaplugin.templunchingperm")) {
+            if (!(joinFfaCommand.playing.contains(p))) {
                 BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
-                attachment.setPermission("ffaplugin.templunchingperm", false);
-            /* mettre
-            attachment.setPermission("ffaplugin.templunchingperm", true);
-            DANS LE GAME END */
+                p.setFlying(true);
+                joinFfaCommand.playing.add(p);
             } else {
-                p.sendMessage("§c You already joined !");
+                p.sendMessage("§c Sorry but you've already joined the event !");
             }
-        }else {
+        } else {
             p.sendMessage("§c Sorry but no ffa event are lunched yet");
         }
         return false;
