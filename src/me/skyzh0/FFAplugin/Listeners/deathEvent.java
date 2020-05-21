@@ -12,8 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitTask;
 
 import java.util.ArrayList;
@@ -43,8 +41,6 @@ public class deathEvent implements Listener {
                 BukkitTask mcIsShit = new specMod(p.getPlayer()).runTaskLater(plugin, 1);
 
                 killer.setLastDamage(0);
-                killer.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 25, 1));
-                killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 4, 2));
                 BukkitTask jehaiscejeu = new hideSpec(p.getPlayer()).runTaskLater(plugin, 1);
 
                 deathEvent.diedPlayer.add(p);
@@ -53,7 +49,7 @@ public class deathEvent implements Listener {
 
             int alivePlayers = joinFfaCommand.playing.size();
 
-            if(alivePlayers <= 1 && lunchFfaCommand.isLunched){
+            if (alivePlayers <= 1 && lunchFfaCommand.isLunched) {
                 BukkitTask woulaTaGagne = new gameWin(p.getPlayer()).runTaskLater(plugin, 1);
             }
         }

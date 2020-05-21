@@ -19,14 +19,26 @@ public class specMod extends BukkitRunnable {
 
     @Override
     public void run() {
-        TextComponent begin = new TextComponent("§7 You entered in spectator mod, do /ffaleave to leave the event");
-        p.teleport(deathEvent.deathloc);
-        p.getWorld().strikeLightning(deathEvent.deathloc);
-        p.spigot().sendMessage(begin);
-        p.setGameMode(GameMode.SURVIVAL);
-        p.setAllowFlight(true);
+
         p.getInventory().clear();
+
+        TextComponent begin = new TextComponent("§7You entered in spectator mod, do /ffaleave to leave the event");
+        TextComponent indication = new TextComponent("§aDo /spectate to open the spectate gui !");
+        TextComponent indication2 = new TextComponent("§a----> You can sneak + left click on a player to see his inventory !");
+
+        p.teleport(deathEvent.deathloc);
+
+        p.getWorld().strikeLightningEffect(p.getLocation());
+
+        p.spigot().sendMessage(begin);
+        p.spigot().sendMessage(indication);
+        p.spigot().sendMessage(indication2);
+
+        p.setGameMode(GameMode.SURVIVAL);
+
+        p.setAllowFlight(true);
         p.setCanPickupItems(false);
+
         specMod.isSpectating = true;
 
     }

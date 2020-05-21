@@ -20,4 +20,7 @@ commands:
   admindebug:
     aliases: debugarray
     description: COOL ADMIN STUUF
+  specui:
+    aliases: spectate
+    description: Open Spectator GUI
 api-version: 1.7.10

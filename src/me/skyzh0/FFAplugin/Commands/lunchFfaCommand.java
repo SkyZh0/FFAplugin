@@ -22,10 +22,13 @@ public class lunchFfaCommand implements CommandExecutor {
     }
 
     public static boolean isLunched = false;
+    public static Player host;
+
     private static World world = Bukkit.getWorld("world");
     public static Location Spawn;
     public static Location Arena1;
     public static Location specLoc;
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -47,6 +50,7 @@ public class lunchFfaCommand implements CommandExecutor {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
+                lunchFfaCommand.host = p;
                 lunchFfaCommand.isLunched = true;
             } else {
                 p.sendMessage("§c Sorry, but another FFA event is already lunched");

@@ -10,7 +10,6 @@ import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 
 public class gameWin extends BukkitRunnable {
     Player p;
@@ -22,7 +21,9 @@ public class gameWin extends BukkitRunnable {
     @Override
     public void run() {
         Player winner = joinFfaCommand.playing.get(0);
+
         TextComponent msg1 = new net.md_5.bungee.api.chat.TextComponent("§6" + winner.getName() + " §b won the FFA event !");
+
         winner.setGameMode(GameMode.CREATIVE);
         winner.getInventory().clear();
         winner.updateInventory();
@@ -30,6 +31,7 @@ public class gameWin extends BukkitRunnable {
         winner.setFoodLevel(20);
         winner.setExp(0);
         winner.setLevel(0);
+
         Bukkit.spigot().broadcast(msg1);
 
         Location location = winner.getLocation();
@@ -37,13 +39,20 @@ public class gameWin extends BukkitRunnable {
         world.playSound(location, Sound.WITHER_DEATH, 100, 1);
 
         int i = 0;
+        int j = 2;
 
         for (Player player : Bukkit.getOnlinePlayers()) {
-            player.showPlayer(player);
+
+            for (Player all : Bukkit.getOnlinePlayers()) {
+                player.showPlayer(all);
+                j++;
+            }
+
             player.recalculatePermissions();
             joinFfaCommand.playing.remove(p);
             deathEvent.diedPlayer.remove(p);
             player.teleport(lunchFfaCommand.Spawn);
+
             i++;
         }
         int nFireWorks = 10;
@@ -68,11 +77,12 @@ public class gameWin extends BukkitRunnable {
         deathEvent.diedPlayer.clear();
         HOSTjoining.LunchTimer = 60;
 
-        int j = 0;
+        int k = 0;
         for (Player playing : Bukkit.getOnlinePlayers()) {
+            playing.getInventory().clear();
             playing.setAllowFlight(true);
             playing.setFlying(true);
-            j++;
+            k++;
         }
 
     }

@@ -37,7 +37,7 @@ public class joinFfaCommand implements CommandExecutor {
         Player p = (Player) sender;
         int LunchTimer = 60;
         if (lunchFfaCommand.isLunched) {
-            if (!(joinFfaCommand.playing.contains(p))) {
+            if (!(joinFfaCommand.playing.contains(p)) || p != lunchFfaCommand.host) {
                 BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
                 p.setFlying(true);

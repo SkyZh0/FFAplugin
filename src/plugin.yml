@@ -1,5 +1,5 @@
 name: FFAplugin
-version: 0.2
+version: 1.0
 author: SkyZh0
 main: me.skyzh0.FFAplugin.Main
 description: This is an FFA plugin made by SkyZh0
@@ -20,4 +20,7 @@ commands:
   admindebug:
     aliases: debugarray
     description: COOL ADMIN STUUF
+  specui:
+    aliases: spectate
+    description: Open Spectator GUI
 api-version: 1.7.10

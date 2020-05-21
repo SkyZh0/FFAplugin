@@ -1,10 +1,10 @@
 package me.skyzh0.FFAplugin.GameStateRunnable;
 
 import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -13,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
 
 public class gameLunch extends BukkitRunnable {
     Player p;
@@ -35,7 +34,7 @@ public class gameLunch extends BukkitRunnable {
             cancel();
         } else {
             int j = 0;
-            for (Player playing : Bukkit.getOnlinePlayers()) {
+            for (Player playing : joinFfaCommand.playing) {
                 playing.setFlying(false);
                 playing.setAllowFlight(false);
                 j++;
@@ -47,6 +46,7 @@ public class gameLunch extends BukkitRunnable {
             p.getInventory().setArmorContents(new ItemStack[4]);
             p.getInventory().clear();
             p.getInventory().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
+
             ItemStack SWORD = new ItemStack(Material.STONE_SWORD);
             ItemMeta meta = SWORD.getItemMeta();
             meta.addEnchant(Enchantment.DURABILITY, 3, true);

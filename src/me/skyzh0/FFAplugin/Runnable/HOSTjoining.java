@@ -18,8 +18,8 @@ public class HOSTjoining extends BukkitRunnable {
 
     @Override
     public void run() {
-        TextComponent msgJoiningTimer = new TextComponent("§6 lunching in " + LunchTimer + " sec");
-        TextComponent error = new TextComponent("§4 Not enough player to lunch the event");
+        TextComponent msgJoiningTimer = new TextComponent("§6Begin in " + LunchTimer + " sec");
+        TextComponent error = new TextComponent("§4Not enough player to lunch the event");
 
         Sound counterSound = Sound.SUCCESSFUL_HIT;
 
@@ -40,10 +40,14 @@ public class HOSTjoining extends BukkitRunnable {
             } else if (LunchTimer <= 0) {
                 if (joinFfaCommand.playing.size() < 2) {
                     p.spigot().sendMessage(error);
+                    p.setAllowFlight(true);
+                    p.setFlying(true);
                     cancel();
                 } else {
                     HOSTjoining.isGameRunning = true;
                     player.playSound(player.getLocation(), Sound.ENDERDRAGON_HIT, 100, 1);
+                    player.setAllowFlight(false);
+                    player.setFlying(false);
                     cancel();
                 }
             }
@@ -51,18 +55,9 @@ public class HOSTjoining extends BukkitRunnable {
         if (LunchTimer == 60) {
             joinFfaCommand.playing.add(p);
             p.spigot().sendMessage(msgJoiningTimer);
-        } else if (LunchTimer == 10) {
-            p.playSound(p.getLocation(), counterSound, 100, 1);
-        } else if (LunchTimer <= 5 && LunchTimer != 0) {
-            p.playSound(p.getLocation(), counterSound, 100, 1);
-        } else if (LunchTimer <= 0) {
-            p.playSound(p.getLocation(), Sound.ENDERDRAGON_HIT, 100, 1);
         }
         LunchTimer--;
         HOSTjoining.LunchTimer = LunchTimer;
-
-        p.setAllowFlight(true);
-        p.setFlying(true);
 
     }
 
