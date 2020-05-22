@@ -1,4 +1,4 @@
-package me.skyzh0.FFAplugin.Commands;
+package me.skyzh0.FFAplugin.Commands.spec;
 
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import me.skyzh0.FFAplugin.Main;

@@ -1,11 +1,11 @@
 package me.skyzh0.FFAplugin.Listeners;
 
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
-import me.skyzh0.FFAplugin.GameStateRunnable.gameWin;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.hideSpec;
-import me.skyzh0.FFAplugin.Runnable.specMod;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameWin;
+import me.skyzh0.FFAplugin.Runnable.spec.hideSpec;
+import me.skyzh0.FFAplugin.Runnable.spec.specMod;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

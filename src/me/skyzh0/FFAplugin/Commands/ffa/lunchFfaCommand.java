@@ -1,9 +1,9 @@
-package me.skyzh0.FFAplugin.Commands;
+package me.skyzh0.FFAplugin.Commands.ffa;
 
-import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
-import me.skyzh0.FFAplugin.Runnable.lunching;
+import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.lunching;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;

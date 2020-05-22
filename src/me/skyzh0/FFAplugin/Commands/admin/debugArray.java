@@ -1,8 +1,10 @@
-package me.skyzh0.FFAplugin.Commands;
+package me.skyzh0.FFAplugin.Commands.admin;
 
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

@@ -1,7 +1,7 @@
 package me.skyzh0.FFAplugin.Listeners;
 
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

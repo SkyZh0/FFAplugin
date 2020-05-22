@@ -1,6 +1,6 @@
-package me.skyzh0.FFAplugin.Commands;
+package me.skyzh0.FFAplugin.Commands.admin;
 
-import me.skyzh0.FFAplugin.GameStateRunnable.gameWin;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameWin;
 import me.skyzh0.FFAplugin.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

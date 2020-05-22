@@ -1,4 +1,4 @@
-package me.skyzh0.FFAplugin.Runnable;
+package me.skyzh0.FFAplugin.Runnable.spec;
 
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import org.bukkit.Bukkit;
@@ -6,7 +6,7 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import static me.skyzh0.FFAplugin.Commands.lunchFfaCommand.specLoc;
+import static me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand.specLoc;
 
 public class leaveSpec extends BukkitRunnable {
     public static int LunchTimer = 60;
@@ -30,11 +30,9 @@ public class leaveSpec extends BukkitRunnable {
             p.setExp(0);
             p.setLevel(0);
             p.recalculatePermissions();
-            int i = 0;
             for (Player player : Bukkit.getOnlinePlayers()) {
                 p.showPlayer(player);
                 player.recalculatePermissions();
-                i++;
             }
         } else {
             p.sendMessage("§4 You cannot do that while you are alive");

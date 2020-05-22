@@ -1,6 +1,6 @@
 package me.skyzh0.FFAplugin.specUI;
 
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;

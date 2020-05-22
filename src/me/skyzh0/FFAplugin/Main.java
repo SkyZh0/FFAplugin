@@ -4,8 +4,19 @@ package me.skyzh0.FFAplugin;
  * Created by SkyZh0 on the 18/05/2020
  */
 
-import me.skyzh0.FFAplugin.Commands.*;
+import io.github.thatkawaiisam.assemble.Assemble;
+import io.github.thatkawaiisam.assemble.AssembleStyle;
+import me.skyzh0.FFAplugin.Commands.admin.debugArray;
+import me.skyzh0.FFAplugin.Commands.admin.ffaAdminCommand;
+import me.skyzh0.FFAplugin.Commands.editKit.editKit;
+import me.skyzh0.FFAplugin.Commands.editKit.leaveKit;
+import me.skyzh0.FFAplugin.Commands.editKit.setKit;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.leaveFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
+import me.skyzh0.FFAplugin.Commands.spec.specUiCommand;
 import me.skyzh0.FFAplugin.Listeners.*;
+import me.skyzh0.FFAplugin.Scoreboard.AssembleScoreboard;
 import me.skyzh0.FFAplugin.specUI.specUI;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -35,7 +46,20 @@ public class Main extends JavaPlugin {
         new specUiCommand(this);
         new itemProtection(this);
 
+        new editKit(this);
+        new leaveKit(this);
+        new setKit(this);
+
         this.specUI = new specUI();
+
+        //Start Instance
+        Assemble assemble = new Assemble(this, new AssembleScoreboard());
+
+        //Set Interval (Tip: 20 ticks = 1 second)
+        assemble.setTicks(2);
+
+        //Set Style (Tip: Viper Style starts at -1 and goes down)
+        assemble.setAssembleStyle(AssembleStyle.VIPER);
 
 
     }

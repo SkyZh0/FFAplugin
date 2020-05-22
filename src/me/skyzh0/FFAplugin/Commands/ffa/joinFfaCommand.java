@@ -1,9 +1,9 @@
-package me.skyzh0.FFAplugin.Commands;
+package me.skyzh0.FFAplugin.Commands.ffa;
 
-import me.skyzh0.FFAplugin.GameStateRunnable.gameLunch;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
-import me.skyzh0.FFAplugin.Runnable.PLAYERjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.PLAYERjoining;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

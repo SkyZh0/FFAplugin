@@ -1,9 +1,9 @@
-package me.skyzh0.FFAplugin.GameStateRunnable;
+package me.skyzh0.FFAplugin.Runnable.GameStateRunnable;
 
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
-import me.skyzh0.FFAplugin.Commands.lunchFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
-import me.skyzh0.FFAplugin.Runnable.HOSTjoining;
+import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.*;
 import org.bukkit.entity.Firework;
@@ -38,14 +38,11 @@ public class gameWin extends BukkitRunnable {
         World world = location.getWorld();
         world.playSound(location, Sound.WITHER_DEATH, 100, 1);
 
-        int i = 0;
-        int j = 2;
 
         for (Player player : Bukkit.getOnlinePlayers()) {
 
             for (Player all : Bukkit.getOnlinePlayers()) {
                 player.showPlayer(all);
-                j++;
             }
 
             player.recalculatePermissions();
@@ -53,7 +50,6 @@ public class gameWin extends BukkitRunnable {
             deathEvent.diedPlayer.remove(p);
             player.teleport(lunchFfaCommand.Spawn);
 
-            i++;
         }
         int nFireWorks = 10;
         while (nFireWorks > 0) {
@@ -77,12 +73,10 @@ public class gameWin extends BukkitRunnable {
         deathEvent.diedPlayer.clear();
         HOSTjoining.LunchTimer = 60;
 
-        int k = 0;
         for (Player playing : Bukkit.getOnlinePlayers()) {
             playing.getInventory().clear();
             playing.setAllowFlight(true);
             playing.setFlying(true);
-            k++;
         }
 
     }

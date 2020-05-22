@@ -1,4 +1,4 @@
-package me.skyzh0.FFAplugin.Runnable;
+package me.skyzh0.FFAplugin.Runnable.ffa;
 
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.entity.Player;

@@ -1,6 +1,6 @@
-package me.skyzh0.FFAplugin.Runnable;
+package me.skyzh0.FFAplugin.Runnable.ffa;
 
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;

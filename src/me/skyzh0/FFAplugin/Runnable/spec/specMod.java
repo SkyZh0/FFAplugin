@@ -1,6 +1,6 @@
-package me.skyzh0.FFAplugin.Runnable;
+package me.skyzh0.FFAplugin.Runnable.spec;
 
-import me.skyzh0.FFAplugin.Commands.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.GameMode;
