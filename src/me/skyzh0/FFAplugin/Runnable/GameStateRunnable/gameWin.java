@@ -9,6 +9,7 @@ import org.bukkit.*;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class gameWin extends BukkitRunnable {
@@ -32,6 +33,10 @@ public class gameWin extends BukkitRunnable {
         winner.setFoodLevel(20);
         winner.setExp(0);
         winner.setLevel(0);
+
+        winner.removePotionEffect(PotionEffectType.SPEED);
+        winner.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+        winner.removePotionEffect(PotionEffectType.FIRE_RESISTANCE);
 
         Bukkit.spigot().broadcast(msg1);
 

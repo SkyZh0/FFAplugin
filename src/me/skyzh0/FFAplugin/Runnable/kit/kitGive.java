@@ -2,8 +2,7 @@ package me.skyzh0.FFAplugin.Runnable.kit;
 
 import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
 import me.skyzh0.FFAplugin.GUI.kitsUI.kitsUI;
-import me.skyzh0.FFAplugin.Kits.kitList.Archer;
-import me.skyzh0.FFAplugin.Kits.kitList.Base;
+import me.skyzh0.FFAplugin.Kits.kitList.*;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -29,6 +28,15 @@ public class kitGive extends BukkitRunnable {
                 } else if (kitsUI.choosenKIT == "Base") {
                     playing.getInventory().setContents(Base.getItems());
                     playing.getInventory().setArmorContents(Base.getArmor());
+                } else if (kitsUI.choosenKIT == "Gapple") {
+                    playing.getInventory().setContents(Gapple.getItems());
+                    playing.getInventory().setArmorContents(Gapple.getArmor());
+                } else if (kitsUI.choosenKIT == "NoDebuff") {
+                    playing.getInventory().setContents(NoDebuff.getItems());
+                    playing.getInventory().setArmorContents(NoDebuff.getArmor());
+                } else if (kitsUI.choosenKIT == "Axe") {
+                    playing.getInventory().setContents(Axe.getItems());
+                    playing.getInventory().setArmorContents(Axe.getArmor());
                 } else {
                     playing.getInventory().setContents(Base.getItems());
                     playing.getInventory().setArmorContents(Base.getArmor());

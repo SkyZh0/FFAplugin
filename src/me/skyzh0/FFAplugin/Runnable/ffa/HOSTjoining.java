@@ -52,6 +52,7 @@ public class HOSTjoining extends BukkitRunnable {
                     p.setFlying(true);
                     joinFfaCommand.playing.clear();
                     lunchFfaCommand.isLunched = false;
+                    HOSTjoining.LunchTimer = 60;
                     cancel();
                 } else {
                     HOSTjoining.isGameRunning = true;

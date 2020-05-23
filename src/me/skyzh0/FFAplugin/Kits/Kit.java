@@ -1,8 +1,7 @@
 package me.skyzh0.FFAplugin.Kits;
 
 
-import me.skyzh0.FFAplugin.Kits.kitList.Archer;
-import me.skyzh0.FFAplugin.Kits.kitList.Base;
+import me.skyzh0.FFAplugin.Kits.kitList.*;
 import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
@@ -28,6 +27,9 @@ public abstract class Kit implements Listener {
 
         registerKit(new Archer());
         registerKit(new Base());
+        registerKit(new Gapple());
+        registerKit(new NoDebuff());
+        registerKit(new Axe());
 
 
     }

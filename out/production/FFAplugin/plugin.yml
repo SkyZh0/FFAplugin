@@ -23,13 +23,4 @@ commands:
   specui:
     aliases: spectate
     description: Open Spectator GUI
-  leavekit:
-    aliases:
-    description: leave the kit editor
-  editkit:
-    aliases:
-    description: join the kit editor
-  setkit:
-    aliases:
-    description: set a new kit
 api-version: 1.7.10

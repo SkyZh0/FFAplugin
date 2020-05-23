@@ -1,7 +1,6 @@
 package me.skyzh0.FFAplugin.GUI.kitsUI;
 
-import me.skyzh0.FFAplugin.Kits.kitList.Archer;
-import me.skyzh0.FFAplugin.Kits.kitList.Base;
+import me.skyzh0.FFAplugin.Kits.kitList.*;
 import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -28,8 +27,12 @@ public class kitsUI {
     public Inventory GUI(Player p) {
         Inventory toReturn = Bukkit.createInventory(null, inv_rows, inventory_name);
 
-        toReturn.setItem(0, Archer.icon());
-        toReturn.setItem(1, Base.icon());
+        toReturn.setItem(0, NoDebuff.icon());
+        toReturn.setItem(1, Gapple.icon());
+        toReturn.setItem(2, Archer.icon());
+        toReturn.setItem(3, Axe.icon());
+        toReturn.setItem(4, Base.icon());
+
 
         return toReturn;
     }
@@ -45,6 +48,22 @@ public class kitsUI {
                 p.closeInventory();
             } else if (clicked.getType().equals(Base.icon().getType())) {
                 String kitname = "Base";
+                kitsUI.choosenKIT = kitname;
+                p.sendMessage("§aYou choose the " + ChatColor.GOLD + kitname + ChatColor.GREEN + " kit for your FFA event");
+                p.closeInventory();
+            } else if (clicked.getType().equals(Gapple.icon().getType())) {
+                String kitname = "Gapple";
+                kitsUI.choosenKIT = kitname;
+                p.sendMessage("§aYou choose the " + ChatColor.GOLD + kitname + ChatColor.GREEN + " kit for your FFA event");
+                p.closeInventory();
+            } else if (clicked.getType().equals(NoDebuff.icon().getType())) {
+                String kitname = "NoDebuff";
+                kitsUI.choosenKIT = kitname;
+                p.sendMessage("§aYou choose the " + ChatColor.GOLD + kitname + ChatColor.GREEN + " kit for your FFA event");
+                p.closeInventory();
+
+            } else if (clicked.getType().equals(Axe.icon().getType())) {
+                String kitname = "Axe";
                 kitsUI.choosenKIT = kitname;
                 p.sendMessage("§aYou choose the " + ChatColor.GOLD + kitname + ChatColor.GREEN + " kit for your FFA event");
                 p.closeInventory();
