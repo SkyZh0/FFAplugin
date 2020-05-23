@@ -27,6 +27,13 @@ public class inventoryClick implements Listener {
             }
             this.plugin.getSpecUI().clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
         }
+        if (title.equals(this.plugin.getKitsUI().inventory_name)) {
+            e.setCancelled(true);
+            if (e.getCurrentItem() == null) {
+                return;
+            }
+            this.plugin.getKitsUI().clicked((Player) e.getWhoClicked(), e.getSlot(), e.getCurrentItem(), e.getInventory());
+        }
         if (title.equals("container.inventory")) {
             if (HOSTjoining.isGameRunning) {
                 e.setCancelled(true);

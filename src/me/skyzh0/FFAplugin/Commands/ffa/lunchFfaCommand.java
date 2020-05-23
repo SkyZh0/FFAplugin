@@ -1,9 +1,10 @@
 package me.skyzh0.FFAplugin.Commands.ffa;
 
-import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.ffa.lunching;
+import me.skyzh0.FFAplugin.Runnable.kit.kitGive;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -39,7 +40,7 @@ public class lunchFfaCommand implements CommandExecutor {
             if (!lunchFfaCommand.isLunched) {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval * 20);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
-                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer);
+                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
                 joinFfaCommand.playing.add(p);
                 lunchFfaCommand.isLunched = true;
             }
@@ -50,10 +51,14 @@ public class lunchFfaCommand implements CommandExecutor {
                 BukkitTask lunch = new lunching(p.getPlayer()).runTaskTimer(plugin, 0, interval);
                 BukkitTask join = new HOSTjoining(p.getPlayer()).runTaskTimer(plugin, 0, 20);
                 BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
+                BukkitTask leBonKitSaMere = new kitGive(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
+
                 lunchFfaCommand.host = p;
                 lunchFfaCommand.isLunched = true;
+
+                p.openInventory(this.plugin.getKitsUI().GUI(p));
             } else {
-                p.sendMessage("§c Sorry, but another FFA event is already lunched");
+                p.sendMessage("§cSorry, but another FFA event is already lunched");
             }
         } else {
             p.sendMessage("§cSorry but you don't have the permission !");

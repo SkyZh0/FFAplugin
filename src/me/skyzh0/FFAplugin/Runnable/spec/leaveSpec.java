@@ -16,6 +16,7 @@ public class leaveSpec extends BukkitRunnable {
         p = player;
     }
 
+
     @Override
     public void run() {
         if (deathEvent.diedPlayer.contains(p)) {

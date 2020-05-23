@@ -1,7 +1,10 @@
 package me.skyzh0.FFAplugin.Runnable.ffa;
 
 import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
+import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
+import me.skyzh0.FFAplugin.GUI.kitsUI.kitsUI;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -20,6 +23,7 @@ public class HOSTjoining extends BukkitRunnable {
     public void run() {
         TextComponent msgJoiningTimer = new TextComponent("§6Begin in " + LunchTimer + " sec");
         TextComponent error = new TextComponent("§4Not enough player to lunch the event");
+        TextComponent kit = new TextComponent("§aYou will play with the " + ChatColor.GOLD + kitsUI.choosenKIT + " §akit");
 
         Sound counterSound = Sound.SUCCESSFUL_HIT;
 
@@ -31,6 +35,10 @@ public class HOSTjoining extends BukkitRunnable {
                 player.spigot().sendMessage(msgJoiningTimer);
             } else if (LunchTimer == 30) {
                 player.spigot().sendMessage(msgJoiningTimer);
+                if (kitsUI.choosenKIT == null) {
+                    kitsUI.choosenKIT = "Base";
+                }
+                player.spigot().sendMessage(kit);
             } else if (LunchTimer == 10) {
                 player.spigot().sendMessage(msgJoiningTimer);
                 player.playSound(player.getLocation(), counterSound, 100, 1);
@@ -42,6 +50,8 @@ public class HOSTjoining extends BukkitRunnable {
                     p.spigot().sendMessage(error);
                     p.setAllowFlight(true);
                     p.setFlying(true);
+                    joinFfaCommand.playing.clear();
+                    lunchFfaCommand.isLunched = false;
                     cancel();
                 } else {
                     HOSTjoining.isGameRunning = true;

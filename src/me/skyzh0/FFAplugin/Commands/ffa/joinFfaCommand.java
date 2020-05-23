@@ -1,7 +1,7 @@
 package me.skyzh0.FFAplugin.Commands.ffa;
 
-import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Main;
+import me.skyzh0.FFAplugin.Runnable.GameStateRunnable.gameLunch;
 import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import me.skyzh0.FFAplugin.Runnable.ffa.PLAYERjoining;
 import org.bukkit.command.Command;

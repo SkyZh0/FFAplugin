@@ -26,6 +26,7 @@ public class gameWin extends BukkitRunnable {
 
         winner.setGameMode(GameMode.CREATIVE);
         winner.getInventory().clear();
+        winner.getInventory().setArmorContents(null);
         winner.updateInventory();
         winner.setHealth(p.getMaxHealth());
         winner.setFoodLevel(20);

@@ -1,4 +1,4 @@
-package me.skyzh0.FFAplugin.specUI;
+package me.skyzh0.FFAplugin.GUI.specUI;
 
 import me.skyzh0.FFAplugin.Commands.ffa.joinFfaCommand;
 import org.bukkit.Bukkit;
