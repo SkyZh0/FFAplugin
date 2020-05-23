@@ -5,12 +5,17 @@ import me.skyzh0.FFAplugin.Commands.ffa.lunchFfaCommand;
 import me.skyzh0.FFAplugin.Listeners.deathEvent;
 import me.skyzh0.FFAplugin.Runnable.ffa.HOSTjoining;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.apache.commons.lang.WordUtils;
 import org.bukkit.*;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.List;
 
 public class gameWin extends BukkitRunnable {
     Player p;
@@ -25,7 +30,7 @@ public class gameWin extends BukkitRunnable {
 
         TextComponent msg1 = new net.md_5.bungee.api.chat.TextComponent("§6" + winner.getName() + " §b won the FFA event !");
 
-        winner.setGameMode(GameMode.CREATIVE);
+        winner.setGameMode(GameMode.SURVIVAL);
         winner.getInventory().clear();
         winner.getInventory().setArmorContents(null);
         winner.updateInventory();
@@ -33,6 +38,8 @@ public class gameWin extends BukkitRunnable {
         winner.setFoodLevel(20);
         winner.setExp(0);
         winner.setLevel(0);
+        winner.setAllowFlight(true);
+        winner.setFlying(true);
 
         winner.removePotionEffect(PotionEffectType.SPEED);
         winner.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
@@ -83,6 +90,13 @@ public class gameWin extends BukkitRunnable {
             playing.getInventory().clear();
             playing.setAllowFlight(true);
             playing.setFlying(true);
+        }
+
+        List<Entity> entList = (List<Entity>) world.getEntities();
+        for (Entity current : entList) {
+            if (current instanceof Item) {
+                current.remove();
+            }
         }
 
     }

@@ -37,14 +37,18 @@ public class joinFfaCommand implements CommandExecutor {
         Player p = (Player) sender;
         int LunchTimer = 60;
         if (lunchFfaCommand.isLunched) {
-            if (!(joinFfaCommand.playing.contains(p)) || p != lunchFfaCommand.host) {
-                BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
-                BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
-                p.setFlying(true);
-                joinFfaCommand.playing.add(p);
-            } else {
+            if (p == lunchFfaCommand.host) {
                 p.sendMessage("§c Sorry but you've already joined the event !");
+                return true;
             }
+            if (joinFfaCommand.playing.contains(p)) {
+                p.sendMessage("§c Sorry but you've already joined the event !");
+                return true;
+            }
+            BukkitTask run = new PLAYERjoining(p.getPlayer()).runTaskLater(plugin, 1);
+            BukkitTask mdr = new gameLunch(p.getPlayer()).runTaskLater(plugin, HOSTjoining.LunchTimer * 20);
+            p.setFlying(true);
+            joinFfaCommand.playing.add(p);
         } else {
             p.sendMessage("§c Sorry but no ffa event are lunched yet");
         }
