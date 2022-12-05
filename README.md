@@ -1,2 +1,2 @@
 # FFAplugin
-WOULA JE GALERE DEJA JUSTE POUR LE SYSTEME DE MESSAGE LOL
+First try with bukkit 
